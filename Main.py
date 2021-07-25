@@ -30,3 +30,4 @@ while (dt.datetime.now() - start).seconds < 3600:
     temp = int((bmp.temperature * 1.8) + 32)
     
     sensor_write(temp, start)
+quit()

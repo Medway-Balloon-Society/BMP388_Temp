@@ -12,16 +12,18 @@ temp = 7
 
 def sensor_write(Stemp, Dtime):
   with open ('Readings/temp.csv', 'a') as log:
+        header = ['Temperature', 'Time']
+        data = [Stemp, Dtime]
         log_writer = csv.writer(log)
-        log_writer.writerow('{Stemp}')
-        log_writer.writerow('{Dtime}')
+        log_writer.writerow(header)
+        log_writer.writerow(data)
 
 file = open("Readings/temp.csv", "r+")
 file.truncate
 file.close
 
 start = dt.datetime.now()
-while (dt.datetime.now() - start).seconds < 120:
+while (dt.datetime.now() - start).seconds < 3600:
     temp = int((bmp.temperature * 1.8) + 32)
     
     sensor_write(temp, start)

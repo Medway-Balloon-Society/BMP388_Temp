@@ -6,7 +6,7 @@ import csv
 
 i2c = busio.I2C(board.SCL, board.SDA)
 bmp = adafruit_bmp3xx.BMP3XX_I2C(i2c)
-#bmp = adafruit_bmp3x.BMP3XX_I2C(i2c, address = 0x76)
+#bmp = adafruit_bmp3xx.BMP3XX_I2C(i2c, address = 0x76)
 #uncomment line above if SD0 pin is connected to GND.
 bmp.sea_level_pressure = int(bmp.pressure)
 
